@@ -1,18 +1,17 @@
 <script lang="ts">
 	// import Header from './Header.svelte';
 	// import './styles.css';
-	import { pwaInfo } from 'virtual:pwa-info';
-	import { pwaAssetsHead } from 'virtual:pwa-assets/head';
+	// import { pwaInfo } from 'virtual:pwa-info';
+	// import { pwaAssetsHead } from 'virtual:pwa-assets/head';
 
-	
-    interface Props {
-      children?: import('svelte').Snippet;
-    }  
-    let { children }: Props = $props();
-	let webManifest = $derived(pwaInfo ? pwaInfo.webManifest.linkTag : '')
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+	let { children }: Props = $props();
+	// let webManifest = $derived(pwaInfo ? pwaInfo.webManifest.linkTag : '')
 </script>
 
-<svelte:head>
+<!-- <svelte:head>
 	{#if pwaAssetsHead.themeColor}
 		<meta name="theme-color" content={pwaAssetsHead.themeColor.content} />
 	{/if}
@@ -20,7 +19,7 @@
 		<link {...link} />
 	{/each}
 	{@html webManifest}
-</svelte:head>
+</svelte:head> -->
 
 <div class="app">
 	<!-- <Header /> -->
@@ -32,9 +31,9 @@
 	<footer>
 		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
 	</footer>
-	{#await import('$lib/PWABadge.svelte') then { default: PWABadge }}
+	<!-- {#await import('$lib/PWABadge.svelte') then { default: PWABadge }}
 		<PWABadge />
-	{/await}
+	{/await} -->
 </div>
 
 <style>
