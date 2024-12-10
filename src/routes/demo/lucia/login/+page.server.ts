@@ -2,7 +2,7 @@ import { hash, verify } from '@node-rs/argon2';
 import { encodeBase32LowerCase } from '@oslojs/encoding';
 import { fail, redirect } from '@sveltejs/kit';
 import { eq } from 'drizzle-orm';
-import * as auth from '$lib/server/auth';
+import * as auth from '$lib/server/auth/session';
 import { db } from '$lib/server/db';
 import * as table from '$lib/server/db/schema';
 import type { Actions, PageServerLoad } from './$types';
@@ -28,6 +28,7 @@ export const actions: Actions = {
 		}
 
 		const results = await db.select().from(table.user).where(eq(table.user.username, username));
+		console.log(results);
 
 		const existingUser = results.at(0);
 		if (!existingUser) {
@@ -47,6 +48,7 @@ export const actions: Actions = {
 		const sessionToken = auth.generateSessionToken();
 		const session = await auth.createSession(sessionToken, existingUser.id);
 		auth.setSessionTokenCookie(event, sessionToken, session.expiresAt);
+		console.log(event.cookies.getAll());
 
 		return redirect(302, '/demo/lucia');
 	},
