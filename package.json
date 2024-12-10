@@ -45,13 +45,13 @@
     "workbox-window": "^7.1.0"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^0.9.4",
     "@node-rs/argon2": "^1.1.0",
     "@oslojs/crypto": "^1.0.1",
     "@oslojs/encoding": "^1.1.0",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
-    "drizzle-orm": "^0.33.0",
-    "postgres": "^3.4.4"
+    "drizzle-orm": "^0.33.0"
   },
   "resolutions": {
     "sharp": "0.32.6",
