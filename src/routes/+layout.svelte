@@ -1,6 +1,6 @@
 <script lang="ts">
 	// import Header from './Header.svelte';
-	import './styles.css';
+	// import './styles.css';
 	import { pwaInfo } from 'virtual:pwa-info';
 	import { pwaAssetsHead } from 'virtual:pwa-assets/head';
 
