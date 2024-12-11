@@ -1,7 +1,10 @@
 import { pgTable, text, integer, timestamp } from 'drizzle-orm/pg-core';
+import { createId } from '@paralleldrive/cuid2';
 
 export const user = pgTable('user', {
-	id: text('id').primaryKey(),
+	id: text('id')
+		.primaryKey()
+		.$defaultFn(() => createId()),
 	age: integer('age'),
 	username: text('username').notNull().unique(),
 	passwordHash: text('password_hash').notNull()
